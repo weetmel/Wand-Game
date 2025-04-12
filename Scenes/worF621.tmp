@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://d2fw54fol1bsn"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_v7nju"]
+[ext_resource type="Script" path="res://Scripts/Reticle.gd" id="2_cj50r"]
+[ext_resource type="PackedScene" uid="uid://cpc78t5gw0gnm" path="res://Scenes/Wand.tscn" id="3_fripv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_24ec1"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_cssu0"]
+sky_material = SubResource("ProceduralSkyMaterial_24ec1")
+
+[sub_resource type="Environment" id="Environment_u11j0"]
+background_mode = 2
+sky = SubResource("Sky_cssu0")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enu7e"]
+albedo_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ndvpv"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bomcp"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.658689, -0.580582, 0.478595, 0, 0.636078, 0.771625, -0.752415, 0.508261, -0.418978, 14.4034, 27.281, -15.2412)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u11j0")
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00359058, -0.0371516, -0.0961809)
+use_collision = true
+size = Vector3(65.2656, 0.20459, 61.9159)
+material = SubResource("StandardMaterial3D_enu7e")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_v7nju")
+
+[node name="Head" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8032, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0722528, -0.02981)
+
+[node name="Wand" parent="CharacterBody3D/Head/Camera3D" instance=ExtResource("3_fripv")]
+transform = Transform3D(-0.00286718, 0, 0.0999589, 0, 0.1, 0, -0.0999589, 0, -0.00286718, 0.27999, -0.227246, -0.416141)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08211, 0)
+mesh = SubResource("CapsuleMesh_ndvpv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08211, 0)
+shape = SubResource("ConvexPolygonShape3D_bomcp")
+
+[node name="UI" type="Control" parent="CharacterBody3D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Reticle" type="CenterContainer" parent="CharacterBody3D/UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_cj50r")
+DOT_RADIUS = 3.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65169, -8.9658)

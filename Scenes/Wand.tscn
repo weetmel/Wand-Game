@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpc78t5gw0gnm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qjt2p"]
+albedo_color = Color(0.337255, 0.227451, 0.0980392, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v2ylv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_07wwi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chr3y"]
+albedo_color = Color(0.0114703, 0.59589, 0.912133, 1)
+metallic = 1.0
+metallic_specular = 1.0
+emission_enabled = true
+emission = Color(0.0114703, 0.59589, 0.912133, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="Animation" id="Animation_b2tbu"]
+resource_name = "Shoot"
+length = 0.1
+step = 0.01
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.01, 1, -1, 0, 0, 0.1, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8wp22"]
+_data = {
+"Shoot": SubResource("Animation_b2tbu")
+}
+
+[node name="Wand" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qjt2p")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_v2ylv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-4.37114e-09, 0.1, 0, -1.33333, -5.82819e-08, 0, 0, 0, 1.33333, 0.525129, 0, 0)
+mesh = SubResource("BoxMesh_07wwi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_chr3y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8wp22")
+}
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 4.95921, 0, 0)
+target_position = Vector3(0, 0, -1)
