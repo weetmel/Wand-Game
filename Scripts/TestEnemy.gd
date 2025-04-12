@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var health = 10
+@export var burn_threshold = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
