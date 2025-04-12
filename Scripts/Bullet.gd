@@ -38,7 +38,6 @@ func _process(delta):
 				ray.get_collider().hitbox_hit(damage)
 				pierce -= 1
 				#print('post-hit pierce: ', pierce)
-				#pierce_down()
 				if pierce < 0:
 					ray.enabled = false
 					kill_self()
@@ -60,8 +59,4 @@ func set_wand(w: Wand) -> void:
 func set_damage():
 	damage += wand.get_damage_mod()
 	return damage
-
-#func pierce_down():
-	#print('piercing')
-	#pierce -= 1
 
