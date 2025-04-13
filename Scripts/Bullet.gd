@@ -13,6 +13,7 @@ var has_split = false
 var lifetime = 0.0
 var damage = 2
 var pierce = 0
+var burn = 0
 var wand: Wand
 var last_collision
 
@@ -35,7 +36,7 @@ func _process(delta):
 			if collider.is_in_group("Enemies"):
 				#print('hit enemy')
 				last_collision = collider
-				ray.get_collider().hitbox_hit(damage)
+				ray.get_collider().hitbox_hit(damage, burn)
 				pierce -= 1
 				#print('post-hit pierce: ', pierce)
 				if pierce < 0:
