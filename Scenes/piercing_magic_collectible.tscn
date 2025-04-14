@@ -1,17 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5e8seb1vjg7e"]
+[gd_scene load_steps=8 format=3 uid="uid://cthba327q6805"]
 
-[ext_resource type="Script" path="res://Scripts/ModifierCollectible.gd" id="1_w4goc"]
-[ext_resource type="Resource" uid="uid://cjagbgoojowm1" path="res://Resources/SplitShot.tres" id="2_fsw1f"]
+[ext_resource type="Script" path="res://Scripts/ModifierCollectible.gd" id="1_pfu8n"]
+[ext_resource type="Resource" uid="uid://ccmfdtsww0epq" path="res://Resources/PiercingMagic.tres" id="2_c4mvd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_q4il6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fy4ce"]
-albedo_color = Color(0.506885, 0.868855, 0.395946, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cawsa"]
+albedo_color = Color(0.607843, 0.145098, 0.92549, 1)
 metallic = 1.0
 metallic_specular = 1.0
 roughness = 0.0
 emission_enabled = true
-emission = Color(0.412699, 0.719649, 0.318251, 1)
+emission = Color(0.606802, 0.145104, 0.926723, 1)
 emission_energy_multiplier = 3.62
 
 [sub_resource type="Animation" id="Animation_cqxq3"]
@@ -35,13 +35,13 @@ _data = {
 radius = 0.326609
 
 [node name="Area3D" type="Area3D"]
-script = ExtResource("1_w4goc")
-modifier = ExtResource("2_fsw1f")
+script = ExtResource("1_pfu8n")
+modifier = ExtResource("2_c4mvd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.102729, 0.203812, 0.102017, -0.14377, 0.144777, -0.144464, -0.176853, 0.000695005, 0.176699, 0, 0.0428571, 0)
+transform = Transform3D(0.102729, 0.203812, 0.102017, -0.14377, 0.144777, -0.144464, -0.176853, 0.000695005, 0.176699, 0, 0.137198, 0)
 mesh = SubResource("BoxMesh_q4il6")
-surface_material_override/0 = SubResource("StandardMaterial3D_fy4ce")
+surface_material_override/0 = SubResource("StandardMaterial3D_cawsa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -53,5 +53,5 @@ autoplay = "rotate"
 shape = SubResource("SphereShape3D_1biym")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485595, 0)
-text = "Split Shot"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494488, 0)
+text = "Piercing Magic"

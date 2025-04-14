@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="PiercingMagic" load_steps=2 format=3 uid="uid://ccmfdtsww0epq"]
+
+[ext_resource type="Script" path="res://Scripts/PiercingMagic.gd" id="1_ijou3"]
+
+[resource]
+script = ExtResource("1_ijou3")
