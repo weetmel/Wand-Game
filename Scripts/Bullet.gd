@@ -19,13 +19,15 @@ var last_collision
 
 func _ready():
 	damage = set_damage()
-	for modifier in modifiers:
-		modifier.on_apply(self)
+	if modifiers.size() != 0:
+		for modifier in modifiers:
+			modifier.on_apply(self)
 	print('initial pierce: ', pierce)
 
 func on_hit(target):
-	for modifier in modifiers:
-		modifier.on_hit(self,target)
+	if modifiers.size() != 0:
+		for modifier in modifiers:
+			modifier.on_hit(self,target)
 
 func _process(delta):
 	lifetime += delta

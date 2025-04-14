@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2fw54fol1bsn"]
+[gd_scene load_steps=17 format=3 uid="uid://d2fw54fol1bsn"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_v7nju"]
 [ext_resource type="Script" path="res://Scripts/Reticle.gd" id="2_cj50r"]
 [ext_resource type="PackedScene" uid="uid://cpc78t5gw0gnm" path="res://Scenes/Wand.tscn" id="3_fripv"]
 [ext_resource type="Script" path="res://Scripts/Wand.gd" id="4_t87uf"]
+[ext_resource type="PackedScene" uid="uid://b5e8seb1vjg7e" path="res://Scenes/split_shot_collectible.tscn" id="6_dybds"]
+[ext_resource type="PackedScene" uid="uid://djgqmda04yhfj" path="res://Scenes/fire_infusion_collectible.tscn" id="7_12y3k"]
 [ext_resource type="PackedScene" uid="uid://dx5d6ymoin46d" path="res://Scenes/TestEnemy.tscn" id="7_xih8d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_24ec1"]
@@ -45,7 +47,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_u11j0")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.127828, 0, 0)
 script = ExtResource("1_v7nju")
 
@@ -123,3 +125,9 @@ transform = Transform3D(-0.358743, 0, -0.933437, 0, 1, 0, 0.933437, 0, -0.358743
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.105147, 0)
 mesh = SubResource("PlaneMesh_uhefq")
 surface_material_override/0 = SubResource("StandardMaterial3D_nchy6")
+
+[node name="SplitShot_Collectible" parent="." instance=ExtResource("6_dybds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44748, 0.302742, -0.425723)
+
+[node name="FireInfusion_Collectible" parent="." instance=ExtResource("7_12y3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87008, 0.279168, 1.55383)

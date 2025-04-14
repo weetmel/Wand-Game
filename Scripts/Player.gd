@@ -32,13 +32,11 @@ var modifiers
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-
 
 func _physics_process(_delta):
 	pass
@@ -103,3 +101,8 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+
+func add_modifier(modifier: Resource):
+	var modifier_instance = modifier.duplicate()
+	wand.wand_modifiers.append(modifier_instance)
+	print('picked up: ', modifier)

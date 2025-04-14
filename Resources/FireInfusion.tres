@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="FireInfusion" load_steps=2 format=3 uid="uid://bhqeg8ntun0a1"]
+
+[ext_resource type="Script" path="res://Scripts/FireInfusion.gd" id="1_vqvdd"]
+
+[resource]
+script = ExtResource("1_vqvdd")
