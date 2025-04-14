@@ -39,7 +39,7 @@ script = ExtResource("1_5sgrc")
 modifier = ExtResource("2_pfmpf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.102729, 0.203812, 0.102017, -0.14377, 0.144777, -0.144464, -0.176853, 0.000695005, 0.176699, 0, 0.0114386, 0)
+transform = Transform3D(0.102729, 0.203812, 0.102017, -0.14377, 0.144777, -0.144464, -0.176853, 0.000695005, 0.176699, 0, 0, 0)
 mesh = SubResource("BoxMesh_q4il6")
 surface_material_override/0 = SubResource("StandardMaterial3D_5ada6")
 
@@ -53,5 +53,5 @@ autoplay = "rotate"
 shape = SubResource("SphereShape3D_1biym")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44543, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 text = "Fire Infusion"

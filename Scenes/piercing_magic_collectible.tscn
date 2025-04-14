@@ -39,7 +39,7 @@ script = ExtResource("1_pfu8n")
 modifier = ExtResource("2_c4mvd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.102729, 0.203812, 0.102017, -0.14377, 0.144777, -0.144464, -0.176853, 0.000695005, 0.176699, 0, 0.137198, 0)
+transform = Transform3D(0.102729, 0.203812, 0.102017, -0.14377, 0.144777, -0.144464, -0.176853, 0.000695005, 0.176699, 0, 0, 0)
 mesh = SubResource("BoxMesh_q4il6")
 surface_material_override/0 = SubResource("StandardMaterial3D_cawsa")
 
@@ -53,5 +53,5 @@ autoplay = "rotate"
 shape = SubResource("SphereShape3D_1biym")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494488, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 text = "Piercing Magic"
