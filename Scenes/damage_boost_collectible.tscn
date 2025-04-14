@@ -1,17 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5e8seb1vjg7e"]
+[gd_scene load_steps=8 format=3 uid="uid://s2ls5luy0gfk"]
 
-[ext_resource type="Script" path="res://Scripts/ModifierCollectible.gd" id="1_w4goc"]
-[ext_resource type="Resource" uid="uid://cjagbgoojowm1" path="res://Resources/SplitShot.tres" id="2_fsw1f"]
+[ext_resource type="Script" path="res://Scripts/ModifierCollectible.gd" id="1_niwq5"]
+[ext_resource type="Resource" uid="uid://efgui4ugh6tr" path="res://Resources/DamageBoost.tres" id="2_8sxbh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_q4il6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fy4ce"]
-albedo_color = Color(0.506885, 0.868855, 0.395946, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo5sq"]
+albedo_color = Color(0.870588, 0.14902, 0.121569, 1)
 metallic = 1.0
 metallic_specular = 1.0
 roughness = 0.0
 emission_enabled = true
-emission = Color(0.412699, 0.719649, 0.318251, 1)
+emission = Color(0.868647, 0.147448, 0.120435, 1)
 emission_energy_multiplier = 3.62
 
 [sub_resource type="Animation" id="Animation_cqxq3"]
@@ -35,13 +35,13 @@ _data = {
 radius = 0.326609
 
 [node name="Area3D" type="Area3D"]
-script = ExtResource("1_w4goc")
-modifier = ExtResource("2_fsw1f")
+script = ExtResource("1_niwq5")
+modifier = ExtResource("2_8sxbh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.102729, 0.203812, 0.102017, -0.14377, 0.144777, -0.144464, -0.176853, 0.000695005, 0.176699, 0, 0.0428571, 0)
+transform = Transform3D(0.102729, 0.203812, 0.102017, -0.14377, 0.144777, -0.144464, -0.176853, 0.000695005, 0.176699, 0, 0.137198, 0)
 mesh = SubResource("BoxMesh_q4il6")
-surface_material_override/0 = SubResource("StandardMaterial3D_fy4ce")
+surface_material_override/0 = SubResource("StandardMaterial3D_bo5sq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -54,4 +54,4 @@ shape = SubResource("SphereShape3D_1biym")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485595, 0)
-text = "Split Shot"
+text = "Damage Boost"

@@ -9,6 +9,7 @@
 albedo_color = Color(0.886275, 0.447059, 0.12549, 1)
 metallic = 1.0
 metallic_specular = 1.0
+roughness = 0.0
 emission_enabled = true
 emission = Color(0.886421, 0.445241, 0.127276, 1)
 emission_energy_multiplier = 3.62
@@ -50,3 +51,7 @@ autoplay = "rotate"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_1biym")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44543, 0)
+text = "Fire Infusion"

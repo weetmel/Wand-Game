@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2fw54fol1bsn"]
+[gd_scene load_steps=19 format=3 uid="uid://d2fw54fol1bsn"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_v7nju"]
 [ext_resource type="Script" path="res://Scripts/Reticle.gd" id="2_cj50r"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b5e8seb1vjg7e" path="res://Scenes/split_shot_collectible.tscn" id="6_dybds"]
 [ext_resource type="PackedScene" uid="uid://djgqmda04yhfj" path="res://Scenes/fire_infusion_collectible.tscn" id="7_12y3k"]
 [ext_resource type="PackedScene" uid="uid://dx5d6ymoin46d" path="res://Scenes/TestEnemy.tscn" id="7_xih8d"]
+[ext_resource type="PackedScene" uid="uid://cthba327q6805" path="res://Scenes/piercing_magic_collectible.tscn" id="8_1fl80"]
+[ext_resource type="PackedScene" uid="uid://s2ls5luy0gfk" path="res://Scenes/damage_boost_collectible.tscn" id="9_62pie"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_24ec1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -78,7 +80,6 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="Reticle" type="CenterContainer" parent="CharacterBody3D/UI"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -127,7 +128,13 @@ mesh = SubResource("PlaneMesh_uhefq")
 surface_material_override/0 = SubResource("StandardMaterial3D_nchy6")
 
 [node name="SplitShot_Collectible" parent="." instance=ExtResource("6_dybds")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44748, 0.302742, -0.425723)
+transform = Transform3D(0.0926834, 0, 0.995696, 0, 1, 0, -0.995696, 0, 0.0926834, -5.93015, 0.302742, 0.0885456)
 
 [node name="FireInfusion_Collectible" parent="." instance=ExtResource("7_12y3k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87008, 0.279168, 1.55383)
+transform = Transform3D(0.0725419, 0, 0.997365, 0, 1, 0, -0.997365, 0, 0.0725419, -5.95978, 0.302057, 1.55383)
+
+[node name="PiercingMagic_Collectible" parent="." instance=ExtResource("8_1fl80")]
+transform = Transform3D(0.102723, 0, 0.99471, 0, 1, 0, -0.99471, 0, 0.102723, -6.00046, 0.226675, 3.04868)
+
+[node name="DamageBoost_Collectible" parent="." instance=ExtResource("9_62pie")]
+transform = Transform3D(-0.208151, 0, 0.978097, 0, 1, 0, -0.978097, 0, -0.208151, -5.95937, 0.234394, 4.32686)
