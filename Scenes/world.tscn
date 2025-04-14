@@ -128,13 +128,13 @@ mesh = SubResource("PlaneMesh_uhefq")
 surface_material_override/0 = SubResource("StandardMaterial3D_nchy6")
 
 [node name="SplitShot_Collectible" parent="." instance=ExtResource("6_dybds")]
-transform = Transform3D(0.0926834, 0, 0.995696, 0, 1, 0, -0.995696, 0, 0.0926834, -5.93015, 0.302742, 0.0885456)
+transform = Transform3D(0.0926834, 0, 0.995696, 0, 1, 0, -0.995696, 0, 0.0926834, -5.93, 0.3, 0.089)
 
 [node name="FireInfusion_Collectible" parent="." instance=ExtResource("7_12y3k")]
-transform = Transform3D(0.0725419, 0, 0.997365, 0, 1, 0, -0.997365, 0, 0.0725419, -5.95978, 0.302057, 1.55383)
+transform = Transform3D(0.0725419, 0, 0.997365, 0, 1, 0, -0.997365, 0, 0.0725419, -5.96, 0.3, 1.554)
 
 [node name="PiercingMagic_Collectible" parent="." instance=ExtResource("8_1fl80")]
-transform = Transform3D(0.102723, 0, 0.99471, 0, 1, 0, -0.99471, 0, 0.102723, -6.00046, 0.226675, 3.04868)
+transform = Transform3D(0.102723, 0, 0.99471, 0, 1, 0, -0.99471, 0, 0.102723, -6, 0.3, 3.049)
 
 [node name="DamageBoost_Collectible" parent="." instance=ExtResource("9_62pie")]
-transform = Transform3D(-0.208151, 0, 0.978097, 0, 1, 0, -0.978097, 0, -0.208151, -5.95937, 0.234394, 4.32686)
+transform = Transform3D(-0.208151, 0, 0.978097, 0, 1, 0, -0.978097, 0, -0.208151, -5.959, 0.3, 4.327)
