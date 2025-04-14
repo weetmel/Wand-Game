@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://djgqmda04yhfj"]
+
+[ext_resource type="Script" path="res://Scripts/ModifierCollectible.gd" id="1_5sgrc"]
+[ext_resource type="Resource" uid="uid://bhqeg8ntun0a1" path="res://Resources/FireInfusion.tres" id="2_pfmpf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q4il6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ada6"]
+albedo_color = Color(0.886275, 0.447059, 0.12549, 1)
+metallic = 1.0
+metallic_specular = 1.0
+emission_enabled = true
+emission = Color(0.886421, 0.445241, 0.127276, 1)
+emission_energy_multiplier = 3.62
+
+[sub_resource type="Animation" id="Animation_cqxq3"]
+resource_name = "rotate"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.7, 1, 0, 0.15, 0, 1.5, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cks1r"]
+_data = {
+"rotate": SubResource("Animation_cqxq3")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1biym"]
+radius = 0.326609
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_5sgrc")
+modifier = ExtResource("2_pfmpf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.102729, 0.203812, 0.102017, -0.14377, 0.144777, -0.144464, -0.176853, 0.000695005, 0.176699, 0, 0.0114386, 0)
+mesh = SubResource("BoxMesh_q4il6")
+surface_material_override/0 = SubResource("StandardMaterial3D_5ada6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cks1r")
+}
+autoplay = "rotate"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_1biym")
